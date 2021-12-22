@@ -15,7 +15,7 @@
  * Tested up to:      5.2
  * Description:       Additional code for headles cms.
  * Version:           1.0.0
- * Author:            {author}
+ * Author:            RealHero
  * Author URI:        http://realhe.ro
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

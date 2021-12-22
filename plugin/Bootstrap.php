@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Fedek6\WpMPB;
+namespace RealHero\Memocracy;
 
 /**
  * Main plugin bootstrap class.
- * 
+ *
  * @package     wp-modern-plugin-boilerplate
  * @subpackage  core
  * @version     1.0.0
@@ -34,7 +34,7 @@ class Bootstrap
 
     /**
      * Constructor.
-     * 
+     *
      * @param  string  $pluginName  Simple unique plugin identificator.
      * @param  string  $assetsUrl   Absolute assets URL.
      * @param  string  $pluginPath  Absolute plugin path.
@@ -53,8 +53,8 @@ class Bootstrap
     }
 
     /**
-     * Register component. 
-     * 
+     * Register component.
+     *
      * @param  string  $name       Unique component name.
      * @param  string  $component  Component class (with namespace).
      * @throws \Error
