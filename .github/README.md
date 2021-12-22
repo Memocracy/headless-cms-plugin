@@ -1,3 +1,5 @@
+<img src="Logo_memocracy.svg" width="200">
+
 # headless-cms-plugin
 
 Additional code for Memocracy CMS.
