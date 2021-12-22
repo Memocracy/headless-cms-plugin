@@ -6,7 +6,7 @@ Additional code for Memocracy CMS.
 
 ---
 
-![logo](https://realhe.ro/img/logo.svg "Realhe.ro")
+**Original docs**
 
 # WP Modern Plugin Boilerplate 
 
