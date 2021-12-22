@@ -4,7 +4,6 @@
 
 Additional code for Memocracy CMS.
 
-
 ---
 
 ![logo](https://realhe.ro/img/logo.svg "Realhe.ro")
