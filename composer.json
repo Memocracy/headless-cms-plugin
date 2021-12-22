@@ -1,0 +1,28 @@
+{
+  "name": "realhero/memocracy",
+  "description": "A standardized, organized, modern, object-oriented foundation for building high-quality WordPress Plugins.",
+  "type": "metapackage",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Konrad Fedorczyk",
+      "email": "fedek6@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "RealHero\\Memocracy\\": "plugin"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "RealHero\\Memocracy\\Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --testdox --verbose --colors tests"
+  }
+}
