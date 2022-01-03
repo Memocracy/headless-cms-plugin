@@ -11,9 +11,9 @@
  * Plugin Name:       Memocracy
  * Plugin URI:        https://github.com/Memocracy/headless-cms-plugin
  * Requires PHP:      7.4
- * Requires at least: 5.2
- * Tested up to:      5.2
- * Description:       Additional code for headles cms.
+ * Requires at least: 7.4
+ * Tested up to:      8.0
+ * Description:       Additional code for Memocracy's headless cms.
  * Version:           1.0.0
  * Author:            RealHero
  * Author URI:        http://realhe.ro
