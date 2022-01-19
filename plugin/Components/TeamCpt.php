@@ -35,15 +35,14 @@ class TeamCpt extends Component
         'description'           => 'Holds our Team Members',
         'public'                => true,
         'menu_position'         => 5,
-        'supports'              => ['title', 'editor', 'thumbnail', 'excerpt', 'comments', 'custom-fields'],
+        'supports'              => ['title', 'editor', 'thumbnail', 'excerpt', 'comments', 'custom-fields', 'page-attributes'],
         'has_archive'           => true,
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'show_in_rest'          => true,
-        'has_archive'           => true,
         'query_var'             => 'team',
         'show_in_graphql'       => true,
-        'hierarchical'          => true,
+        'hierarchical'          => false,
         'graphql_single_name' => 'teamMember',
         'graphql_plural_name' => 'teamMembers',
     ];
@@ -77,6 +76,22 @@ class TeamCpt extends Component
     }
 
     /**
+     * Add menu order to rest.
+     */
+    private function addMenuOrder()
+    {
+        register_rest_field(
+            get_post_types(), // add to these post types
+            'menu_order', // name of field
+            array(
+                'get_callback' => function ($post) {
+                    return get_post_field('menu_order', $post->ID);
+                }
+            )
+        );
+    }
+
+    /**
      * Grouping hook.
      *
      * This must be public.
@@ -100,6 +115,16 @@ class TeamCpt extends Component
     }
 
     /**
+     * Grouping hook.
+     *
+     * This must be public.
+     */
+    public function restApiHook()
+    {
+        $this->addMenuOrder();
+    }
+
+    /**
      * @inheritdoc
      */
     protected function init()
@@ -116,7 +141,14 @@ class TeamCpt extends Component
             'graphQlHook'
         );
 
+        $restApiHook = new Hook(
+            'rest_api_init',
+            $this,
+            'restApiHook'
+        );
+
         $this->hooks->addAction($initHook);
         $this->hooks->addAction($registerGraphQlTypesHook);
+        $this->hooks->addAction($restApiHook);
     }
 }
