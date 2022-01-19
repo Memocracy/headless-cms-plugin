@@ -49,6 +49,7 @@ $plugin = new \RealHero\Memocracy\Bootstrap($pluginName, $assetsUrl, __DIR__, '1
 $plugin->registerComponent('frontendAssets', '\RealHero\Memocracy\Components\FrontendAssets');
 $plugin->registerComponent('adminAssets', '\RealHero\Memocracy\Components\AdminAssets');
 $plugin->registerComponent('i18n', '\RealHero\Memocracy\Components\I18n');
+$plugin->registerComponent('teamCpt', '\RealHero\Memocracy\Components\TeamCpt');
 
 // Plugin lifecycle.
 register_activation_hook( __FILE__, ['\RealHero\Memocracy\AbstractActivation', 'run']);
