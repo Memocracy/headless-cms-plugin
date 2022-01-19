@@ -83,6 +83,9 @@ class TeamCpt extends Component
      */
     public function hook()
     {
+        // Add theme support to bypass empty theme limitation
+        add_theme_support('post-thumbnails');
+
         $this->registerPostType();
     }
 
