@@ -39,6 +39,7 @@ class TeamCpt extends Component
         'has_archive'           => true,
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
+        'show_in_rest'          => true,
         'has_archive'           => true,
         'query_var'             => 'team',
         'show_in_graphql'       => true,
