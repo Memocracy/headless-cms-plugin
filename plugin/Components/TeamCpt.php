@@ -85,7 +85,9 @@ class TeamCpt extends Component
             'menu_order', // name of field
             array(
                 'get_callback' => function ($post) {
-                    return get_post_field('menu_order', $post->ID);
+                    if (isset($post->ID)) {
+                        return get_post_field('menu_order', $post->ID);
+                    }
                 }
             )
         );
