@@ -17,6 +17,8 @@ use RealHero\Memocracy\Core\Hook;
  */
 class TeamCpt extends Component
 {
+    const CPT_HANDLE = "team_members";
+
     private $labels = [
         'name'               => 'Team Members',
         'singular_name'      => 'Team Member',
@@ -47,6 +49,20 @@ class TeamCpt extends Component
         'graphql_plural_name' => 'teamMembers',
     ];
 
+    private $taxonomy = [
+        'hierarchical'          => true,
+        'label'                 => 'Member categories', // display name
+        'query_var'             => true,
+        'show_in_rest'          => true,
+        'show_in_graphql'       => true,
+        'graphql_single_name'   => 'memberCategory',
+        'graphql_plural_name'   => 'memberCategories',
+        'rewrite' => [
+            'slug'          => 'categories',
+            'with_front'    => false
+        ]
+    ];
+
     /**
      * Register meta in WPGraphQL
      */
@@ -72,7 +88,7 @@ class TeamCpt extends Component
     private function registerPostType()
     {
         $args = array_merge($this->args, ['labels' => $this->labels]);
-        register_post_type('team-member', $args);
+        register_post_type(self::CPT_HANDLE, $args);
     }
 
     /**
@@ -94,6 +110,19 @@ class TeamCpt extends Component
     }
 
     /**
+     * Register taxonomy for team members.
+     */
+    private function registerTaxonomy()
+    {
+        register_taxonomy(
+            'members_categories',
+            self::CPT_HANDLE,
+            $this->taxonomy
+        );
+    }
+
+
+    /**
      * Grouping hook.
      *
      * This must be public.
@@ -104,6 +133,7 @@ class TeamCpt extends Component
         add_theme_support('post-thumbnails');
 
         $this->registerPostType();
+        $this->registerTaxonomy();
     }
 
     /**
