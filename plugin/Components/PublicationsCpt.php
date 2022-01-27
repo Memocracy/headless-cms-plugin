@@ -12,7 +12,7 @@ use RealHero\Memocracy\Core\Hook;
  *
  * @package     wp-modern-plugin-boilerplate
  * @subpackage  core
- * @version     1.0.1
+ * @version     1.0.2
  * @author      Konrad Fedorczyk <contact@realhe.ro>
  */
 class PublicationsCpt extends Component
@@ -29,8 +29,8 @@ class PublicationsCpt extends Component
         'all_items'          => 'All Publications',
         'view_item'          => 'View Publication',
         'search_items'       => 'Search Publications',
-        'featured_image'     => 'Portrait',
-        'set_featured_image' => 'Add portrait'
+        'featured_image'     => 'Cover',
+        'set_featured_image' => 'Add cover'
     ];
 
     private $args = [
