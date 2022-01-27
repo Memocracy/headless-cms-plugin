@@ -14,7 +14,7 @@
  * Requires at least: 7.4
  * Tested up to:      8.0
  * Description:       Additional code for Memocracy's headless cms.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            RealHero
  * Author URI:        http://realhe.ro
  * License:           GPL-2.0+
@@ -49,6 +49,7 @@ $plugin = new \RealHero\Memocracy\Bootstrap($pluginName, $assetsUrl, __DIR__, '1
 $plugin->registerComponent('frontendAssets', '\RealHero\Memocracy\Components\FrontendAssets');
 $plugin->registerComponent('adminAssets', '\RealHero\Memocracy\Components\AdminAssets');
 $plugin->registerComponent('i18n', '\RealHero\Memocracy\Components\I18n');
+$plugin->registerComponent('publicationsCpt', '\RealHero\Memocracy\Components\PublicationsCpt');
 $plugin->registerComponent('teamCpt', '\RealHero\Memocracy\Components\TeamCpt');
 
 // Plugin lifecycle.
