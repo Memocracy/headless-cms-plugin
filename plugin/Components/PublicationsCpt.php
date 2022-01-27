@@ -12,7 +12,7 @@ use RealHero\Memocracy\Core\Hook;
  *
  * @package     wp-modern-plugin-boilerplate
  * @subpackage  core
- * @version     1.0.0
+ * @version     1.0.1
  * @author      Konrad Fedorczyk <contact@realhe.ro>
  */
 class PublicationsCpt extends Component
@@ -49,6 +49,25 @@ class PublicationsCpt extends Component
         'graphql_plural_name' => 'publications',
     ];
 
+    /**
+     * Register meta in WPGraphQL
+     */
+    private function exposeMeta()
+    {
+        if (function_exists("register_graphql_field")) {
+            register_graphql_field('Publication', 'publicationUrl', [
+                'type'          => 'String',
+                'description'   => 'Publication link',
+                'resolve'       => function ($post) {
+                    $handle = get_post_meta($post->ID, 'publication_url', true);
+                    return !empty($handle) ? $handle : '';
+                }
+            ]);
+        } else {
+            throw new \Exception("There's no register_graphql_field function");
+        }
+    }
+
 
     /**
      * Register custom post type.
@@ -71,6 +90,16 @@ class PublicationsCpt extends Component
     }
 
     /**
+     * Grouping hook.
+     *
+     * This must be public.
+     */
+    public function graphQlHook()
+    {
+        $this->exposeMeta();
+    }
+
+    /**
      * @inheritdoc
      */
     protected function init()
@@ -81,6 +110,13 @@ class PublicationsCpt extends Component
             'hook'
         );
 
+        $registerGraphQlTypesHook = new Hook(
+            'graphql_register_types',
+            $this,
+            'graphQlHook'
+        );
+
         $this->hooks->addAction($initHook);
+        $this->hooks->addAction($registerGraphQlTypesHook);
     }
 }
