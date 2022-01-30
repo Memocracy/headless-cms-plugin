@@ -56,11 +56,12 @@ class PolicyBriefsCpt extends Component
     private function exposeMeta()
     {
         if (function_exists("register_graphql_field")) {
-            register_graphql_field('Policy brief', 'attachmentFile', [
+            register_graphql_field('policyBrief', 'attachmentFile', [
                 'type'          => 'String',
                 'description'   => 'Policy brief attachment',
                 'resolve'       => function ($post) {
-                    $handle = get_post_meta($post->ID, 'attachment_file', true);
+                    // $handle = get_post_meta($post->ID, 'attachment_file', true);
+                    $handle = get_field('attachment_file', $post->ID);
                     return !empty($handle) ? $handle : '';
                 }
             ]);
