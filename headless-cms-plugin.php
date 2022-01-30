@@ -50,6 +50,7 @@ $plugin = new \RealHero\Memocracy\Bootstrap($pluginName, $assetsUrl, __DIR__, '1
 // $plugin->registerComponent('adminAssets', '\RealHero\Memocracy\Components\AdminAssets');
 $plugin->registerComponent('i18n', '\RealHero\Memocracy\Components\I18n');
 $plugin->registerComponent('publicationsCpt', '\RealHero\Memocracy\Components\PublicationsCpt');
+$plugin->registerComponent('olicyBriefsCpt', '\RealHero\Memocracy\Components\PolicyBriefsCpt');
 $plugin->registerComponent('teamCpt', '\RealHero\Memocracy\Components\TeamCpt');
 
 // Plugin lifecycle.
