@@ -45,8 +45,9 @@ class TeamCpt extends Component
         'query_var'             => 'team',
         'show_in_graphql'       => true,
         'hierarchical'          => false,
-        'graphql_single_name' => 'teamMember',
-        'graphql_plural_name' => 'teamMembers',
+        'graphql_single_name'   => 'teamMember',
+        'graphql_plural_name'   => 'teamMembers',
+        'menu_icon'             => 'dashicons-admin-users'
     ];
 
     private $taxonomy = [

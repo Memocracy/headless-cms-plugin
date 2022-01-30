@@ -42,11 +42,12 @@ class PublicationsCpt extends Component
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'show_in_rest'          => true,
-        'query_var'             => 'team',
+        'query_var'             => 'publication',
         'show_in_graphql'       => true,
         'hierarchical'          => false,
-        'graphql_single_name' => 'publication',
-        'graphql_plural_name' => 'publications',
+        'graphql_single_name'   => 'publication',
+        'graphql_plural_name'   => 'publications',
+        'menu_icon'             => 'dashicons-admin-site-alt'
     ];
 
     /**
