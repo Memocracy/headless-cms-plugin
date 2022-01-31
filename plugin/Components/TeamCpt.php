@@ -12,7 +12,7 @@ use RealHero\Memocracy\Core\Hook;
  *
  * @package     wp-modern-plugin-boilerplate
  * @subpackage  core
- * @version     1.0.0
+ * @version     1.0.1
  * @author      Konrad Fedorczyk <contact@realhe.ro>
  */
 class TeamCpt extends Component
@@ -133,6 +133,7 @@ class TeamCpt extends Component
         // Add theme support to bypass empty theme limitation
         add_theme_support('post-thumbnails');
         add_theme_support('html5');
+        add_theme_support('menus');
 
         $this->registerPostType();
         $this->registerTaxonomy();
