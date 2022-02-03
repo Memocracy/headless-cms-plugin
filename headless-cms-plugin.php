@@ -43,7 +43,7 @@ $assetsUrl = plugin_dir_url(__FILE__) . 'assets';
 /** @var string $pluginName */
 $pluginName = 'WpMPB';
 
-$plugin = new \RealHero\Memocracy\Bootstrap($pluginName, $assetsUrl, __DIR__, '1.0.0');
+$plugin = new \RealHero\Memocracy\Bootstrap($pluginName, $assetsUrl, __DIR__, '1.0.2');
 
 // Add components.
 // $plugin->registerComponent('frontendAssets', '\RealHero\Memocracy\Components\FrontendAssets');
