@@ -16,8 +16,6 @@ window.addEventListener("load", (_event) => {
   const publishBtn = document.querySelector("#wp-admin-bar-publish-changes");
   const { ajaxurl, jQuery, tb_show } = window as MyGlobal;
 
-  console.log(publishBtn);
-
   publishBtn?.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
     e.preventDefault();
@@ -33,10 +31,15 @@ window.addEventListener("load", (_event) => {
           },
           (resp) => {
             console.log(resp);
-            tb_show(
-              "Changes were successfully published!",
-              "#TB_inline?inlineId=deploy-modal&width=auto"
-            );
+
+            if (resp.OK) {
+              tb_show(
+                "Changes were successfully published!",
+                "#TB_inline?inlineId=deploy-modal&width=auto"
+              );
+            } else {
+              alert(resp.msg);
+            }
           }
         )
         .always(() => {
