@@ -9,7 +9,7 @@ use RealHero\Memocracy\Core\Hook;
 
 /**
  * Component for loading admin assets.
- * 
+ *
  * @package     wp-modern-plugin-boilerplate
  * @subpackage  core
  * @version     1.0.0
@@ -43,7 +43,7 @@ class AdminAssets extends Component
 
         wp_register_script(
             $jsName,
-            $this->assetsUrl . '/js/backend.js',
+            $this->assetsUrl . '/js/backend.min.js',
             false,
             $this->version
         );
@@ -53,7 +53,7 @@ class AdminAssets extends Component
 
     /**
      * Grouping hook.
-     * 
+     *
      * This must be public.
      */
     public function hook()

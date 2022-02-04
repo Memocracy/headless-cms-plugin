@@ -23,20 +23,29 @@ module.exports = function (grunt) {
         },
       },
     },
-    sass: {                             
-      dist: {                   
-        options: {                      
-          style: "compressed"
-        },
-        files: {                         
-          "assets/css/frontend.css": "src/frontend/sass/main.scss",       
-          "assets/css/backend.css": "src/backend/sass/main.scss",   
+    uglify: {
+      dist: {
+        files: {
+          "./assets/js/frontend.min.js": ["./assets/js/frontend.js"],
+          "./assets/js/backend.min.js": ["./assets/js/backend.js"],
         }
       }
-    }
+    },
+    sass: {
+      dist: {
+        options: {
+          style: "compressed",
+        },
+        files: {
+          "assets/css/frontend.css": "src/frontend/sass/main.scss",
+          "assets/css/backend.css": "src/backend/sass/main.scss",
+        },
+      },
+    },
   });
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-browserify");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-sass");
-  grunt.registerTask("default", ["clean", "browserify", "sass"]);
+  grunt.registerTask("default", ["clean", "browserify", "uglify", "sass"]);
 };
