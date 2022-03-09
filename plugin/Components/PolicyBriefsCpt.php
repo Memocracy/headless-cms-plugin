@@ -12,7 +12,7 @@ use RealHero\Memocracy\Core\Hook;
  *
  * @package     wp-modern-plugin-boilerplate
  * @subpackage  core
- * @version     1.0.2
+ * @version     1.0.3
  * @author      Konrad Fedorczyk <contact@realhe.ro>
  */
 class PolicyBriefsCpt extends Component
@@ -50,6 +50,20 @@ class PolicyBriefsCpt extends Component
         'menu_icon'             => 'dashicons-format-aside'
     ];
 
+    private $taxonomy = [
+        'hierarchical'          => true,
+        'label'                 => 'Policy brief categories', // display name
+        'query_var'             => true,
+        'show_in_rest'          => true,
+        'show_in_graphql'       => true,
+        'graphql_single_name'   => 'policyBriefCategory',
+        'graphql_plural_name'   => 'policyBriefCategories',
+        'rewrite' => [
+            'slug'          => 'categories',
+            'with_front'    => false
+        ]
+    ];
+
     /**
      * Register meta in WPGraphQL
      */
@@ -80,6 +94,17 @@ class PolicyBriefsCpt extends Component
         register_post_type(self::CPT_HANDLE, $args);
     }
 
+    /**
+     * Register taxonomy for team members.
+     */
+    private function registerTaxonomy()
+    {
+        register_taxonomy(
+            'policy_briefs_categories',
+            self::CPT_HANDLE,
+            $this->taxonomy
+        );
+    }
 
     /**
      * Grouping hook.
@@ -89,6 +114,7 @@ class PolicyBriefsCpt extends Component
     public function hook()
     {
         $this->registerPostType();
+        $this->registerTaxonomy();
     }
 
     /**
