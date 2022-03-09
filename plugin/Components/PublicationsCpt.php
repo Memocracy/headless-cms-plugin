@@ -12,7 +12,7 @@ use RealHero\Memocracy\Core\Hook;
  *
  * @package     wp-modern-plugin-boilerplate
  * @subpackage  core
- * @version     1.0.2
+ * @version     1.0.3
  * @author      Konrad Fedorczyk <contact@realhe.ro>
  */
 class PublicationsCpt extends Component
@@ -50,6 +50,20 @@ class PublicationsCpt extends Component
         'menu_icon'             => 'dashicons-admin-site-alt'
     ];
 
+    private $taxonomy = [
+        'hierarchical'          => true,
+        'label'                 => 'Publication categories', // display name
+        'query_var'             => true,
+        'show_in_rest'          => true,
+        'show_in_graphql'       => true,
+        'graphql_single_name'   => 'publicationCategory',
+        'graphql_plural_name'   => 'publicationCategories',
+        'rewrite' => [
+            'slug'          => 'categories',
+            'with_front'    => false
+        ]
+    ];
+
     /**
      * Register meta in WPGraphQL
      */
@@ -79,6 +93,18 @@ class PublicationsCpt extends Component
         register_post_type(self::CPT_HANDLE, $args);
     }
 
+    /**
+     * Register taxonomy for team members.
+     */
+    private function registerTaxonomy()
+    {
+        register_taxonomy(
+            'publications_categories',
+            self::CPT_HANDLE,
+            $this->taxonomy
+        );
+    }
+
 
     /**
      * Grouping hook.
@@ -88,6 +114,7 @@ class PublicationsCpt extends Component
     public function hook()
     {
         $this->registerPostType();
+        $this->registerTaxonomy();
     }
 
     /**
