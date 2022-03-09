@@ -14,7 +14,7 @@
  * Requires at least: 5.8
  * Tested up to:      8.0
  * Description:       Additional code for Memocracy's headless cms.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            RealHero
  * Author URI:        http://realhe.ro
  * License:           GPL-2.0+
