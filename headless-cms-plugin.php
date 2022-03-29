@@ -14,7 +14,7 @@
  * Requires at least: 5.8
  * Tested up to:      8.0
  * Description:       Additional code for Memocracy's headless cms.
- * Version:           1.0.4
+ * Version:           1.0.5
  * Author:            RealHero
  * Author URI:        http://realhe.ro
  * License:           GPL-2.0+
@@ -43,7 +43,7 @@ $assetsUrl = plugin_dir_url(__FILE__) . 'assets';
 /** @var string $pluginName */
 $pluginName = 'WpMPB';
 
-$plugin = new \RealHero\Memocracy\Bootstrap($pluginName, $assetsUrl, __DIR__, '1.0.2');
+$plugin = new \RealHero\Memocracy\Bootstrap($pluginName, $assetsUrl, __DIR__, '1.0.5');
 
 // Add components.
 // $plugin->registerComponent('frontendAssets', '\RealHero\Memocracy\Components\FrontendAssets');
