@@ -1,5 +1,9 @@
+///
+/// Publish all changes button
+///
 #wp-admin-bar-publish-changes {
   > .ab-item {
+    animation: kind-shake 2s infinite linear;
     background: #2271b1;
     border-color: #2271b1;
     color: #fff;
@@ -10,6 +14,7 @@
 
   > .ab-item[disabled="true"] {
     background: Gray;
+
     &:hover,
     &:focus {
       background: Gray !important;
@@ -17,6 +22,9 @@
   }
 }
 
+///
+/// Wait modal
+///
 .deploy-modal-contents {
   max-width: 50vw;
   padding: 2em 2em;
@@ -52,5 +60,34 @@
 
   40%, 60% {
     transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes kind-shake {
+  0%,
+  69% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  70%,
+  80% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  75%,
+  85% {
+    transform: translate3d(3px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  95% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
   }
 }
