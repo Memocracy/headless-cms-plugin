@@ -132,7 +132,13 @@ class TeamCpt extends Component
     {
         // Add theme support to bypass empty theme limitation
         add_theme_support('post-thumbnails');
-        add_theme_support('html5');
+        add_theme_support('html5', [
+            'comment-list',
+            'comment-form',
+            'search-form',
+            'gallery',
+            'caption',
+        ]);
         add_theme_support('menus');
 
         $this->registerPostType();
